@@ -1,0 +1,105 @@
+//If a function is returning a value by reference then function call can stand onto LHS of equal to operator
+
+#include <iostream>
+char& fn(char *str){
+    
+    return str[0];
+    
+}
+
+int main()
+{
+    
+    char s[10]="infy";
+    char ch ='I';
+    fn(s)=ch;
+    std::cout<<s<<std::endl;
+    
+    //reference to double
+    double d = 1.2;
+    double &f = d;
+    std::cout<<f<<std::endl;
+
+    //reference to pointer of double
+    double *p = &d;
+    double* &x = p;
+    std::cout<<x<<" : "<<p<<std::endl;
+
+    //reference to array of integers
+    int a[5]{1,2,3,4,5};
+    int (&b)[5] = a;
+    std::cout<<b[2]<<std::endl;
+    
+
+    return 0;
+}
+
+O/p- 
+Infy
+1.2
+0x7ffc16d39a98 : 0x7ffc16d39a98
+1.2
+3
+
+=========================================================================================================================================
+Function Overloading-
+Multiple functions with same name but different signatures. Signature difference comes due to-
+1. Number of arguments
+2.Data type of arguments
+3.Sequence of arguments
+*return type donot contribute to signature
+===========================================================================================================================================
+Use of new operator in C++ for DMA-
+
+int main(){
+int *p;
+p = new int[5];//p = (int*)malloc(sizeof(int)*5) - C way of DMA
+delete []p;//to avoid memory leakage
+p = NULL;
+return 0;
+}
+
+Here it will create an array of integers in Heap and pointer which is created in stack will store the address of that heap. Malloc was C- way of DMA.
+
+Valgrind usage for detecting memory leakage-
+https://stackoverflow.com/questions/5134891/how-do-i-use-valgrind-to-find-memory-leaks
+
+Differences b/w malloc and new-
+malloc	                                                                                                        new
+a function	                                                                                                    an operator
+
+don’t call constructor after memory is allocated for                                                            returns NULL if it fails to allocate memory	raises 
+class object	call constructor of clas when memory is allocated for its object                                  an exception if it fails to allocate memory(bad_alloc)
+
+typecatsing required on returned object	                                                                        typecasting not required on returned object
+
+=========================================================================================================================================================
+
+Default argument-
+
+#include <iostream>
+using namespace std;
+
+int add(int,int,int=0,int=0,int=0); //default argument declared in declaration only
+
+int main(){
+cout<<add(1,2,3,4,5);
+cout<<add(1,2,3,4);
+cout<<add(1,2,3);
+cout<<add(1,2);
+return 0;
+}
+
+int add(int a, int b,int c,int d,int e)
+{
+return a+b+c+d+e;
+}
+
+default arguments are assigned in right to left manner, we cannot randomly assign default value in between.
+===============================================================================================================================================================
+
+
+
+
+
+
