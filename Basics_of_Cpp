@@ -156,9 +156,101 @@ return a+b+c+d+e;
 
 default arguments are assigned in right to left manner, we cannot randomly assign default value in between.
 ===============================================================================================================================================================
+Starting from C++ 14 we can initialize object with value provided the corresponding parameterized constructor should be there.
+Also the value of object can be assigned to any integer variable on LHS but it requires operator overloading.
+#include<iostream>
+using namespace std;
 
+class Test{
+    int a =1;
+    string s="Default";
+    public:
+    Test(int x){  //explicit- to prevent
+        a= x;
+        cout<<"Test integer"<<endl;
+        }
+    Test(string s1){
+        s= s1;
+        cout<<"Test string"<<endl;
+    }
+    void print(int a){
+        cout<<"hello"<<endl;
+    }
+   /* void print(const int a){
+        cout<<"constant hello"<<endl;
+    }*/
+    operator int (){  //function typecasting
+        cout<<"in operator"<<endl;
+        return a;
+    }
+};
 
+int main(){
+    //Test t(2);
+    //Test t1("hello");
+    Test t3 = 3;//static_cast<string>("hi");
+   // const Test t1;
+   /*int a = 1;
+    t.print(a);
+    t.print(a);*/
+    int b = t3;
+    cout<<b<<endl;
+    return 0;
+}
 
+O/p-
+Test integer
+in operator
+3
+
+If here we put explicit keyword before constructor then it will cause compilation error-
+
+#include<iostream>
+using namespace std;
+
+class Test{
+    int a;
+    string s;
+    public:
+    //Here explicit keyword is placed
+    explicit Test(int x){  
+        a= x;
+        cout<<"Test integer"<<endl;
+        }
+    Test(string s1){
+        s= s1;
+        cout<<"Test string"<<endl;
+    }
+    void print(int a){
+        cout<<"hello"<<endl;
+    }
+   /* void print(const int a){
+        cout<<"constant hello"<<endl;
+    }*/
+    operator int (){  //function typecasting
+        cout<<"in operator"<<endl;
+        return a;
+    }
+};
+
+int main(){
+    //Test t(2);
+    //Test t1("hello");
+    Test t3 = 3;//static_cast<string>("hi");
+   // const Test t1;
+   /*int a = 1;
+    t.print(a);
+    t.print(a);*/
+    int b = t3;
+    cout<<b<<endl;
+    return 0;
+}
+
+O/p-
+main.cpp: In function ‘int main()’:
+main.cpp:39:15: error: conversion from ‘int’ to non-scalar type ‘Test’ requested
+   39 |     Test t3 = 3;//static_cast<string>("hi");
+      |               ^
 
 
 
