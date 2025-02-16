@@ -48,6 +48,31 @@ Multiple functions with same name but different signatures. Signature difference
 2.Data type of arguments
 3.Sequence of arguments
 *return type donot contribute to signature
+
+One more case where the function overloading is possible-
+#include<iostream>
+using namespace std;
+
+class Test{
+    public:
+    void print(){
+        cout<<"hello"<<endl;
+    }
+    void print() const{
+        cout<<"constant hello"<<endl;
+    }
+};
+
+int main(){
+    Test t;
+    const Test t1;
+    t.print();
+    t1.print();
+    return 0;
+}
+O/p-
+hello
+constant hello
 ===========================================================================================================================================
 Use of new operator in C++ for DMA-
 
