@@ -251,6 +251,5 @@ main.cpp: In function ‘int main()’:
 main.cpp:39:15: error: conversion from ‘int’ to non-scalar type ‘Test’ requested
    39 |     Test t3 = 3;//static_cast<string>("hi");
       |               ^
-
-
-
+=============================================================================================================================================================
+https://medium.com/design-bootcamp/association-composition-and-aggregation-in-c-3ca70336e992
