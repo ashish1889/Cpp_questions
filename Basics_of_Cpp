@@ -73,6 +73,40 @@ int main(){
 O/p-
 hello
 constant hello
+
+This cannot be overloaded if we pass the const in the parameter of the function-
+
+#include<iostream>
+using namespace std;
+
+class Test{
+    public:
+    void print(int a){
+        cout<<"hello"<<endl;
+    }
+    void print(const int a){
+        cout<<"constant hello"<<endl;
+    }
+};
+
+int main(){
+    Test t;
+   // const Test t1;
+   int a = 1;
+    t.print(a);
+    t.print(a);
+    return 0;
+}
+
+In O/p- Compilation failed with below errors
+
+main.cpp:17:10: error: ‘void Test::print(int)’ cannot be overloaded with ‘void Test::print(int)’
+   17 |     void print(const int a){
+      |          ^~~~~
+main.cpp:14:10: note: previous declaration ‘void Test::print(int)’
+   14 |     void print(int a){
+      |          ^~~~~
+
 ===========================================================================================================================================
 Use of new operator in C++ for DMA-
 
