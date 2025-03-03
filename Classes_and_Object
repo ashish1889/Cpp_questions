@@ -4,3 +4,5 @@ mid = id;
 strcpy(make,m);
 cost = c;
 }
+==============================================================================================================================================
+c2.display() -> Here the number of parameters is 1 for the function as left side c2 is also considered as a parameter.
