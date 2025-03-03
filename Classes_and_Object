@@ -1,0 +1,6 @@
+//Here we need to give const in declaration as well as in definition of function, otherwise will get warning as we are passing string in parameter.
+MobilePhone::MobilePhone(int id,const char *m,double c){  //MobilePhone m1(102,"Oppo",20000)
+mid = id;
+strcpy(make,m);
+cost = c;
+}
