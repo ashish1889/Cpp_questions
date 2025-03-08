@@ -5,4 +5,39 @@ strcpy(make,m);
 cost = c;
 }
 ==============================================================================================================================================
-c2.display() -> Here the number of parameters is 1 for the function as left side c2 is also considered as a parameter.
+c2.display() -> Here the number of parameters is 1 for the function as left side c2 is also considered as a parameter.c2 -> implicitly passed param
+*this pointer- 1. holds address of function invoking object.
+               2. constant pointer to class object- Suppose a class Complex then this pointer will be as-
+                                         Complex * const this;(read from right to left for type)
+
+constant object can call only constant function of the class.We need to write const keyword in declaration and definition of the function to make it constant.
+We can't modify data member of a class in constant function.
+
+Eg: int getReal() const; -> declaration
+=================================================================================================================================================
+
+Static data members and static member function-
+1.For static data member of a class only 1 copy exists which is shared by all the objects
+2.Static data member has to be defined outside the class for its memory allocation.
+    int Complex::cnt;
+3.Static function can be called without object.
+   Compex::showcnt();
+4. Static function can access only static members of a class
+5. Non-static member function can access static data member.
+
+class Complex{
+int real;
+int img;
+static int cnt;
+
+public:
+Complex();
+Complex(int,int);
+static void showcnt();//in declaration use of static keyword required.
+};
+
+int Complex::cnt;// for memory allocation
+
+void Complex::showcnt(){ 
+std::cout<<"Number of object"<<cnt<<std::endl;
+}
