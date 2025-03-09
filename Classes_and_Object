@@ -111,4 +111,5 @@ Function overloading is not possible with destructors.
 For taking input with space seperated strings-> cin.getline() used.
 char name[20];
 cin.getline(name,20);
-
+====================================================================================================================================================================================
+Shallow copy is done by compiler.
