@@ -113,3 +113,6 @@ char name[20];
 cin.getline(name,20);
 ====================================================================================================================================================================================
 Shallow copy is done by compiler.
+
+free(): double free detected in tcache2
+Aborted (core dumped) -----> this error comes when there is shallow copy and destructor tries to delete memory from same location twice.
