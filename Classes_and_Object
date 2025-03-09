@@ -5,6 +5,8 @@ strcpy(make,m);
 cost = c;
 }
 ==============================================================================================================================================
+valgrind -  used to check memory leak
+==============================================================================================================================================
 c2.display() -> Here the number of parameters is 1 for the function as left side c2 is also considered as a parameter.c2 -> implicitly passed param
 *this pointer- 1. holds address of function invoking object.
                2. constant pointer to class object- Suppose a class Complex then this pointer will be as-
