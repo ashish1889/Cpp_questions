@@ -41,3 +41,59 @@ int Complex::cnt;// for memory allocation
 void Complex::showcnt(){ 
 std::cout<<"Number of object"<<cnt<<std::endl;
 }
+
+===================================================================================================================================================
+Use of destructor in class- Whenever there is DMA in class - destructor is used.
+
+Eg. code below-
+
+#include<iostrem>
+#include<cstring>
+using namespace std;
+
+class Account{
+int accid;
+char* name;
+double balance;
+
+public:
+
+Account();
+Account(int,const char*, double);
+void display();
+~Account();
+
+};
+
+Account::~Account(){ //destructor gets called as object goes out of scope
+delete[] name;
+}
+
+Account::Account(){
+accid= 101;
+name = new char[4];
+strcpy(name,"abc");
+balance = 10000;
+}
+
+Account::Account(int id, const char* n,double b){
+accid = id;
+name = new char[strlen(n)+1];
+strcpy(name,n);
+balance = b;
+}
+
+void Account::Display(){
+cout<<accid<<" "<<name<<" "<<balance<<endl;
+}
+
+int main(){
+Account a1;
+Account a2(123,"Ajay",500000);
+a1.display();
+a2.display();
+
+return 0;
+
+}
+
