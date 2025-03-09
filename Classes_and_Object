@@ -47,7 +47,7 @@ Use of destructor in class- Whenever there is DMA in class - destructor is used.
 
 Eg. code below-
 
-#include<iostrem>
+#include<iostream>
 #include<cstring>
 using namespace std;
 
@@ -83,7 +83,7 @@ strcpy(name,n);
 balance = b;
 }
 
-void Account::Display(){
+void Account::display(){
 cout<<accid<<" "<<name<<" "<<balance<<endl;
 }
 
@@ -96,4 +96,12 @@ a2.display();
 return 0;
 
 }
+
+O/p-
+
+101 abc 10000
+123 Ajay 500000
+Destructor
+Destructor
+
 
