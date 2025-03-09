@@ -116,3 +116,13 @@ Shallow copy is done by compiler.
 
 free(): double free detected in tcache2
 Aborted (core dumped) -----> this error comes when there is shallow copy and destructor tries to delete memory from same location twice.
+
+To avoid this deep copy needs to be done by declaring & defining copy constructor-
+
+Account(Account&);//declaration
+Account::Account(Account &a){//definition
+accid = a.accid;
+name = new char[strlen(a.name)+1];
+strcpy(name,a.name);
+balance = a.balance;
+}
