@@ -126,3 +126,14 @@ name = new char[strlen(a.name)+1];
 strcpy(name,a.name);
 balance = a.balance;
 }
+=====================================================================================================================================================================================
+Compiler has its own copy for below function -
+  a. Default Constructor
+  b.Destructor
+  c.Copy constructor
+  d.Copy assignment operator
+
+If a class contain a pointer data memberthen it is mandatory for programmer to provide-
+  a. Destructor - to provide memory leakage
+  b. Copy constructor - to avoid dangling pointer
+  c. Copy assignment operator- to avoid dangling pointer
